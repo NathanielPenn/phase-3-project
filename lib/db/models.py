@@ -20,9 +20,7 @@ class Fish(Base):
 
     season = Column(String())
 
-    time = Column(String())
-
-    unit_price = Column(Float())
+    price = Column(Float())
 
     location_id = Column(Integer(), ForeignKey('locations.id'))
 
