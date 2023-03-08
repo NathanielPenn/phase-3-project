@@ -25,7 +25,7 @@ class Fish(Base):
 
     season = Column(String())
 
-    price = Column(Float())
+    price = Column(Integer())
 
     location_id = Column(Integer(), ForeignKey('locations.id'))
 
@@ -34,7 +34,7 @@ class Fish(Base):
 
     def __repr__(self):
 
-        return f'Fish(id={self.id}, name={self.name}, price={self.price})'
+        return f'Fish(id={self.id}, name={self.name}, season={self.season}, bait={self.bait_id} price={self.price})'
 
 
 class Location(Base):
@@ -53,7 +53,6 @@ class Location(Base):
     # fishes = relationship("Fish", backref="location")
 
     def __repr__(self):
-
         return f'Location(id={self.id}), name={self.name}'
 
 

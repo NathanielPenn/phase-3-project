@@ -13,7 +13,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from db.models import Fish, Location, Bait
-from helpers import (create_location_table, create_fish_table)
+from helpers import (create_location_table, create_fish_table, final_f_string)
 #fill_cart, show_cart, remove_from_cart, collect_payment)
 
 engine = create_engine('sqlite:///db/stardew.db')
@@ -54,24 +54,15 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| {======|_| """"|_|"""""
 
     fish = None
     while not fish:
-        fish_id = input('\n\nPlease enter the ID of the Fish you would like to catch:')
+        fish_id = input('Please enter the ID of the Fish you would like to catch:')
         fish = session.query(Fish).filter(Fish.id == fish_id).one_or_none()
-        print(fish)
 
-    # Display list of items at the store
-    # print('Here are all the fish you can catch at this location:')
-    # create_fish_table(fish)
+        baits = session.query(Bait).filter(Bait.id == fish.bait_id)
+        final_f_string(baits, fish)
+        # print(fish)
 
-    # # Start adding items to cart
-    # shopping_cart, cart_total = fill_cart(session, store)
-    # print('Here are the items in your cart:')
-    # show_cart(shopping_cart)
 
-    # # Remove unwanted items from cart
-    # remove_from_cart(session, shopping_cart, cart_total)
 
-    # Collect payment
-    # print(f'Your total is ${cart_total:.2f}\n')
-    # collect_payment(cart_total)
-
-    print('Thank you for using the grocery checkout CLI!\n')
+    # let people know what kind of bait they need to use to catch the fish
+    
+    print('Thank you for fishing with us in Stardew Valley!\n')

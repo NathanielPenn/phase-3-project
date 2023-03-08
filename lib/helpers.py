@@ -45,6 +45,11 @@ def create_fish_table(fishes):
     print('-' * 50)
 
 
+
+def final_f_string(baits, fish):
+    for bait in baits:
+        print(f"\n\nTo catch a {fish.name} you will need to use bait: {bait.name} and you will get {fish.price} Gold if you sell it! \n\n" )
+
 # def fill_cart(session, store):
 #     shopping_cart = ShoppingCart(store=store)
 #     grocery_item_id = input('Please enter the ID of your first item: ')

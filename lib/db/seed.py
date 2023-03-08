@@ -134,7 +134,7 @@ ginger_island = Location(name='Ginger Island', type='River', water='Fresh')
 pirate_cove = Location(name='Pirate Cove', type='Lake', water='Fresh')  
 
 # create bait instances  
-bait = Bait(name='Bait', live= 1, price=5)
+bait = Bait(name='Fresh Bait', live= 1, price=5)
 magnet = Bait(name='Magnet', live= 0, price=1000)
 wild_bait = Bait(name='Wild Bait', live= 1, price=10)  
 magic_bait = Bait(name='Magic Bait', live= 1, price=5000)  
