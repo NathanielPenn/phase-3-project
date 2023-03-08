@@ -6,6 +6,11 @@ from sqlalchemy.orm import relationship, backref
 
 from sqlalchemy.ext.declarative import declarative_base
 
+from sqlalchemy import create_engine
+
+
+engine = create_engine('sqlite:///stardew.db', echo = True)
+
 
 Base = declarative_base()
 
@@ -34,7 +39,7 @@ class Fish(Base):
 
 class Location(Base):
 
-    __tablename__ = 'location'
+    __tablename__ = 'locations'
 
     id = Column(Integer(), primary_key=True)
 
@@ -45,11 +50,12 @@ class Location(Base):
     water = Column(String())
 
 
-    fishes = relationship("Fish", backref="location")
+    # fishes = relationship("Fish", backref="location")
 
     def __repr__(self):
 
         return f'Location(id={self.id}), name={self.name}'
+
 
 
 class Bait(Base):
@@ -62,10 +68,14 @@ class Bait(Base):
 
     live = Column(Boolean())
 
-    cost = Column(Integer())
+    price = Column(Integer())
 
-    fishes = relationship("Fish", backref="bait")
+    # fishes = relationship("Fish", backref="bait")
 
     def __repr__(self):
 
         return f'Bait(id={self.id}), name={self.name}'
+
+
+if __name__ == '__main__':
+    Base.metadata.create_all(engine)
