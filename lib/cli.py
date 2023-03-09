@@ -52,23 +52,28 @@ while True:
     fishes = session.query(Fish).filter(Fish.location_id == location_id)
     create_fish_table(fishes)
 
-
+    
     fish = None
     while not fish:
         fish_id = input('Please enter the ID of the Fish you would like to catch:')
         fish = session.query(Fish).filter(Fish.id == fish_id).one_or_none()
+        if fish not in fishes:
+            fish_id = input('That fish is not available at this location. Please try again: ')
+            fish = session.query(Fish).filter(Fish.id == fish_id).one_or_none()
+            
+            baits = session.query(Bait).filter(Bait.id == fish.bait_id)
+            final_f_string(baits, fish)
+            
+        else:
+            baits = session.query(Bait).filter(Bait.id == fish.bait_id)
+            final_f_string(baits, fish)
+            
+ 
 
-        baits = session.query(Bait).filter(Bait.id == fish.bait_id)
-        final_f_string(baits, fish)
-        # print(fish)
-
-    # your program code here
 
     # prompt the user to start again
     restart = input("Are you done fishing for the day? (Y/N): ")
     if restart.upper() != "N":
         print('Thank you for fishing with us in Stardew Valley!\n')
         break
-
-    # let people know what kind of bait they need to use to catch the fish
         
