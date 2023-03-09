@@ -30,7 +30,7 @@ pike = Fish(name='Pike', season='Winter', price=100, location_id=1, bait_id=1)
 
 # create fish instances - Beach - Spring
 flounder = Fish(name='Flounder', season='Spring', price=100, location_id=3, bait_id=3)
-eel = Fish(name='Eeel', season='Spring', price=85, location_id=3, bait_id=1)  
+eel = Fish(name='Eel', season='Spring', price=85, location_id=3, bait_id=1)  
 herring = Fish(name='Herring', season='Spring', price=30, location_id=3, bait_id=1)
 
 # create fish instances  - Beach - Summer
@@ -94,6 +94,14 @@ scorpion_carp = Fish(name='Scorpion Carp', season='year round', price=150, locat
 # #create fish instances Sewers - Null
 green_algae = Fish(name='Green Algae', season='year round', price=15, location_id=6, bait_id=3)
 white_algae = Fish(name='White Algae', season='year round', price=25, location_id=6, bait_id=2)
+mutant_carp = Fish(name='Mutant Carp', season='year round', price=1000, location_id=6, bait_id=4)
+radioactive_carp = Fish(name='Radioactive Carp', season='year round', price=1000, location_id=6, bait_id=4)
+
+# create fish for Night Market
+blob_fish = Fish(name='Blobfish', season='year round', price=500, location_id=9, bait_id=4)
+spook_fish = Fish(name='Spookfish', season='year round', price=220, location_id=9, bait_id=4)
+midnight_squid = Fish(name='Midnight Squid', season='year round', price=100, location_id=9, bait_id=4)
+
 
 #create fish instances Mutant Bug Lair - year round
 slimejack = Fish(name='Slimejack', season='year round', price=100, location_id=10, bait_id=3) 
@@ -141,7 +149,7 @@ magic_bait = Bait(name='Magic Bait', live= 1, price=5000)
 
 # # add fish instances to database  
 session.bulk_save_objects([smallmouth_bass, shad, bream, catfish, sunfish, tiger_trout, lingcod, pike, flounder, eel, herring, red_snapper, pufferfish, sardine, albacore, super_cucumber, red_mullet, squid, pike, chub, dorado, salmon, midnight_carp, bullhead, large_mouth_bass, sturgeon, walleye, perch, ghostfish, stonefish, ice_pip, lava_eel, woodskip, sandfish, scorpion_carp, green_algae, white_algae, slimejack, void_salmon, blue_discus, lionfish, tilapia, stingray, tuna]) 
-
+session.bulk_save_objects([mutant_carp, radioactive_carp, blob_fish, spook_fish, midnight_squid]) 
 
 # # add bait instances to database  
 session.bulk_save_objects([bait, magnet, wild_bait, magic_bait]) 

@@ -21,16 +21,17 @@ session = sessionmaker(bind=engine)()
 
 if __name__ == '__main__':
     # Intro: welcome to the CLI, pick a Fishing Location
-    print('''
+    print('''\n\n\n
     ___     _                         _                            __   __            _       _              _  _  
-  / __|   | |_    __ _      _ _   __| |    ___   __ __ __   o O O \ \ / /  __ _     | |     | |     ___    | || | 
-  \__ \   |  _|  / _` |    | '_| / _` |   / -_)  \ V  V /  o       \ V /  / _` |    | |     | |    / -_)    \_, | 
-  |___/   _\__|  \__,_|   _|_|_  \__,_|   \___|   \_/\_/  TS__[O]  _\_/_  \__,_|   _|_|_   _|_|_   \___|   _|__/  
+/ __|   | |_    __ _      _ _   __| |    ___   __ __ __   o O O \ \ / /  __ _     | |     | |     ___    | || | 
+\__ \   |  _|  / _` |    | '_| / _` |   / -_)  \ V  V /  o       \ V /  / _` |    | |     | |    / -_)    \_, | 
+|___/   _\__|  \__,_|   _|_|_  \__,_|   \___|   \_/\_/  TS__[O]  _\_/_  \__,_|   _|_|_   _|_|_   \___|   _|__/  
 _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| {======|_| """"|_|"""""|_|"""""|_|"""""|_|"""""|_| """"| 
 "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'
 
 ''')
     print('Hello! Welcome to Stardew Valley. \n\n')
+while True:
     print('Here is a list of fishing spots:')
     locations = session.query(Location)
     create_location_table(locations)
@@ -61,8 +62,13 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| {======|_| """"|_|"""""
         final_f_string(baits, fish)
         # print(fish)
 
+    # your program code here
 
+    # prompt the user to start again
+    restart = input("Are you done fishing for the day? (Y/N): ")
+    if restart.upper() != "N":
+        print('Thank you for fishing with us in Stardew Valley!\n')
+        break
 
     # let people know what kind of bait they need to use to catch the fish
-    
-    print('Thank you for fishing with us in Stardew Valley!\n')
+        
