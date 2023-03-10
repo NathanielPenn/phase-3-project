@@ -39,5 +39,6 @@ def create_fish_table(fishes):
 
 def final_f_string(baits, fish):
     for bait in baits:
-        print(f"\n\nTo catch a {fish.name} you will need to use bait: {bait.name} and you will get {fish.price} Gold if you sell it! \n\n" )
+        price_int = int(fish.price)
+        print(f"\n\nTo catch a {fish.name} you will need to use bait: {bait.name} and you will get {price_int} Gold if you sell it! \n\n" )
 
